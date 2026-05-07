@@ -1,8 +1,5 @@
 # BeCare API 🌿
 
-> **Módulo social e gamificado do app Care Plus**  
-> Sprint 3 – SOA e WebServices | FIAP 2025
-
 **Grupo:** 
 
 | Nome           | RM       |
