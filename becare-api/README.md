@@ -3,7 +3,15 @@
 > **Módulo social e gamificado do app Care Plus**  
 > Sprint 3 – SOA e WebServices | FIAP 2025
 
-**Grupo:** Caio Freitas (RM553190) · Caio Hideki (RM553630) · Jorge Booz (RM552700) · Lana Andrade (RM552596) · Mateus Tibão (RM553267)
+**Grupo:** 
+
+| Nome           | RM       |
+|----------------|----------|
+| Caio Freitas   | RM553190 |
+| Caio Hideki    | RM553630 |
+| Jorge Booz     | RM552700 |
+| Mateus Tibão   | RM553267 |
+| Lana Andrade   | RM552596 |
 
 ---
 
@@ -56,6 +64,32 @@ Os posts passam por moderação (IA + humano), e o usuário acumula **insígnias
 │          Migrações gerenciadas pelo Flyway               │
 └─────────────────────────────────────────────────────────┘
 ```
+
+# Diagramas:
+
+## Diagrama de Arquitetura em camadas
+<img width="2033" height="8192" alt="Arquitetura em camadas" src="https://github.com/user-attachments/assets/ae407a3a-04dd-4fb9-8825-dcd7ec9fe7f5" />
+
+## Diagrama ER
+<img width="8192" height="3825" alt="Diagrama ER" src="https://github.com/user-attachments/assets/0ae377c3-9830-4780-892b-73b30640fd3d" />
+
+## Diagrama de Fluxo — Ciclo de vida de um Post
+<img width="2870" height="8192" alt="Fluxo do post" src="https://github.com/user-attachments/assets/a35e10e2-5d9c-4e15-973f-78c91f99cb1f" />
+
+# Swagger
+
+## Página 1
+<img width="1464" height="761" alt="image" src="https://github.com/user-attachments/assets/c6f13375-f47b-4199-a2f8-2f50885b5ff0" />
+
+## Página 2
+<img width="1552" height="743" alt="image" src="https://github.com/user-attachments/assets/1c5eb9e4-99b2-41ac-9739-40146af57292" />
+
+## Página 3
+<img width="1554" height="747" alt="image" src="https://github.com/user-attachments/assets/967a681d-affc-489b-b5c9-7fbaac301f9d" />
+
+## Página 4
+<img width="1564" height="407" alt="image" src="https://github.com/user-attachments/assets/369cb3f0-866b-4f0a-895a-e99c8bf3dfe3" />
+
 
 ### Padrões utilizados
 - **SOA** – serviços independentes por domínio (Users, Posts, Badges, Challenges, Reports)
