@@ -9,8 +9,8 @@ import br.com.careplus.becare.entity.User;
 import br.com.careplus.becare.enums.PostStatus;
 import br.com.careplus.becare.exception.BusinessException;
 import br.com.careplus.becare.exception.ResourceNotFoundException;
-import br.com.careplus.becare.repository.PillarRepository;
 import br.com.careplus.becare.repository.PostRepository;
+import br.com.careplus.becare.service.PillarService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -29,13 +29,13 @@ import java.util.List;
 public class PostService {
 
     private final PostRepository    postRepository;
-    private final PillarRepository  pillarRepository;
+    private final PillarService     pillarService;
     private final UserService       userService;
 
     @Transactional
     public PostResponse create(PostRequest request) {
         User   user   = userService.getOrThrow(request.getUserId());
-        Pillar pillar = getPillarOrThrow(request.getPillarId());
+        Pillar pillar = pillarService.getOrThrow(request.getPillarId());
 
         if (!user.getActive()) {
             throw new BusinessException("Usuário inativo não pode publicar posts.");
@@ -102,11 +102,6 @@ public class PostService {
     public Post getOrThrow(Long id) {
         return postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", id));
-    }
-
-    private Pillar getPillarOrThrow(Long id) {
-        return pillarRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pilar", id));
     }
 
     PostResponse toResponse(Post p) {

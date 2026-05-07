@@ -1,9 +1,7 @@
 package br.com.careplus.becare.controller;
 
 import br.com.careplus.becare.dto.response.PillarResponse;
-import br.com.careplus.becare.entity.Pillar;
-import br.com.careplus.becare.exception.ResourceNotFoundException;
-import br.com.careplus.becare.repository.PillarRepository;
+import br.com.careplus.becare.service.PillarService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -21,30 +19,17 @@ import java.util.List;
 @Tag(name = "Pilares", description = "Os 7 Pilares de bem-estar do BeCare")
 public class PillarController {
 
-    private final PillarRepository pillarRepository;
+    private final PillarService pillarService;
 
     @GetMapping
     @Operation(summary = "Listar todos os pilares")
     public ResponseEntity<List<PillarResponse>> findAll() {
-        return ResponseEntity.ok(pillarRepository.findAll().stream()
-                .map(this::toResponse).toList());
+        return ResponseEntity.ok(pillarService.findAll());
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Buscar pilar por ID")
     public ResponseEntity<PillarResponse> findById(@PathVariable Long id) {
-        Pillar pillar = pillarRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Pilar", id));
-        return ResponseEntity.ok(toResponse(pillar));
-    }
-
-    private PillarResponse toResponse(Pillar p) {
-        return PillarResponse.builder()
-                .id(p.getId())
-                .name(p.getName())
-                .type(p.getType())
-                .description(p.getDescription())
-                .iconUrl(p.getIconUrl())
-                .build();
+        return ResponseEntity.ok(pillarService.findById(id));
     }
 }
