@@ -38,6 +38,7 @@ br\com\careplus\becare\dto\request\ChallengeRequest.class
 br\com\careplus\becare\entity\Badge$BadgeBuilder.class
 br\com\careplus\becare\dto\response\ChallengeResponse.class
 br\com\careplus\becare\dto\response\UserResponse.class
+br\com\careplus\becare\service\PillarService.class
 br\com\careplus\becare\dto\response\PostResponse.class
 br\com\careplus\becare\controller\PostController.class
 br\com\careplus\becare\entity\Badge.class
